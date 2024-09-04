@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://soa5g32bskxu"]
+
+[ext_resource type="Script" path="res://scenes/frogs/frog.gd" id="1_qiqx2"]
+[ext_resource type="AudioStream" uid="uid://bm0e10lxtc0vk" path="res://assets/audio/jump.wav" id="2_66cbr"]
+[ext_resource type="Texture2D" uid="uid://d0iwyxovoxagi" path="res://assets/images/frog1.png" id="2_wrrxf"]
+[ext_resource type="Texture2D" uid="uid://cqbm6bwtxgv27" path="res://assets/images/frog_shadow.png" id="3_ty483"]
+[ext_resource type="PackedScene" uid="uid://bipwe6amgdi60" path="res://managers/audio_manager/audio_manager_interface.tscn" id="4_hshi6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6ya1"]
+size = Vector2(48, 48)
+
+[node name="Frog" type="CharacterBody2D"]
+position = Vector2(560, 312)
+script = ExtResource("1_qiqx2")
+jump_audio_stream = ExtResource("2_66cbr")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 27)
+texture = ExtResource("3_ty483")
+offset = Vector2(0, -23)
+
+[node name="FrogSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 24)
+texture = ExtResource("2_wrrxf")
+offset = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_h6ya1")
+
+[node name="AudioManagerInterface" parent="." instance=ExtResource("4_hshi6")]

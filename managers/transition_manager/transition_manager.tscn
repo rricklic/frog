@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cishp6y11qbcs"]
+
+[ext_resource type="Script" path="res://managers/transition_manager/transition_manager.gd" id="1_c1nm6"]
+
+[node name="TransitionManager" type="Node"]
+script = ExtResource("1_c1nm6")

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ShaderParameters" load_steps=8 format=3 uid="uid://cpty7aeyccw66"]
+
+[ext_resource type="Script" path="res://managers/shader_manager/parameter_model/dynamic_float_shader_param.gd" id="1_ehgm6"]
+[ext_resource type="Script" path="res://managers/shader_manager/parameter_model/shader_parameters.gd" id="2_g4x76"]
+[ext_resource type="Shader" path="res://shaders/screen/color_fade.gdshader" id="3_4ewu2"]
+[ext_resource type="Script" path="res://managers/shader_manager/parameter_model/static_color_shader_param.gd" id="4_64rts"]
+[ext_resource type="Script" path="res://managers/shader_manager/parameter_model/static_float_shader_param.gd" id="5_2nwng"]
+
+[sub_resource type="Resource" id="Resource_wx72e"]
+script = ExtResource("1_ehgm6")
+name = "amount"
+start_value = 1.0
+end_value = 0.0
+duration = 3.0
+
+[sub_resource type="Resource" id="Resource_ullg8"]
+script = ExtResource("4_64rts")
+name = "target_color"
+value = Color(1, 1, 1, 1)
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_g4x76")
+shader = ExtResource("3_4ewu2")
+is_screen_shader = true
+static_float_params = Array[ExtResource("5_2nwng")]([])
+dynamic_float_params = Array[ExtResource("1_ehgm6")]([SubResource("Resource_wx72e")])
+static_color_params = Array[ExtResource("4_64rts")]([SubResource("Resource_ullg8")])

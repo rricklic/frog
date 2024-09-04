@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckdpb0yxfjj67"]
+
+[ext_resource type="Script" path="res://managers/transition_manager/transition_manager_inferface.gd" id="1_a86li"]
+
+[node name="TransitionManagerInferface" type="Node"]
+script = ExtResource("1_a86li")

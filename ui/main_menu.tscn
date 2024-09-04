@@ -1,0 +1,126 @@
+[gd_scene load_steps=17 format=3 uid="uid://corvnsqvjcik0"]
+
+[ext_resource type="Texture2D" uid="uid://bav67uss54x7c" path="res://assets/images/frog_backgound.png" id="1_rjyd8"]
+[ext_resource type="Theme" uid="uid://cmodhhki37xu4" path="res://themes/theme1.tres" id="1_s17f2"]
+[ext_resource type="Shader" path="res://shaders/texture/scroll.gdshader" id="1_uunn7"]
+[ext_resource type="Script" path="res://ui/main_menu.gd" id="2_x7wat"]
+[ext_resource type="AudioStream" uid="uid://b2dq4j14jvq7r" path="res://assets/audio/title_music.mp3" id="3_6qe50"]
+[ext_resource type="AudioStream" uid="uid://dgajrfw1k44gl" path="res://assets/audio/select.mp3" id="3_6xxrj"]
+[ext_resource type="Resource" uid="uid://cpty7aeyccw66" path="res://managers/shader_manager/parameter_resource/screen/screen_color_fade_from_white.tres" id="3_qliq7"]
+[ext_resource type="AudioStream" uid="uid://xpkvdx8uhcex" path="res://assets/audio/here_we_go.mp3" id="5_2eme0"]
+[ext_resource type="PackedScene" uid="uid://dp5a0qt5yauuk" path="res://managers/shader_manager/shader_manager_interface.tscn" id="5_ge2ft"]
+[ext_resource type="AudioStream" uid="uid://qt1771yna187" path="res://assets/audio/goodbye.mp3" id="6_wgcv6"]
+[ext_resource type="PackedScene" uid="uid://cmfltqlmsnqf8" path="res://managers/scene_manager/scene_manager_interface.tscn" id="7_u7w80"]
+[ext_resource type="Resource" uid="uid://jom1juj55ed1" path="res://managers/shader_manager/parameter_resource/screen/screen_color_fade_to_black.tres" id="8_kd7oy"]
+[ext_resource type="Resource" uid="uid://ce50meoulww8t" path="res://managers/shader_manager/parameter_resource/screen/screen_color_fade_to_white.tres" id="8_slagx"]
+[ext_resource type="PackedScene" uid="uid://bipwe6amgdi60" path="res://managers/audio_manager/audio_manager_interface.tscn" id="8_u608q"]
+[ext_resource type="PackedScene" uid="uid://soa5g32bskxu" path="res://scenes/frogs/frog.tscn" id="10_unpwy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mba8m"]
+shader = ExtResource("1_uunn7")
+shader_parameter/x_speed = -0.1
+shader_parameter/y_speed = 0.1
+shader_parameter/angle = 0.5
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_s17f2")
+script = ExtResource("2_x7wat")
+music = ExtResource("3_6qe50")
+selected_audio = ExtResource("3_6xxrj")
+start_audio = ExtResource("5_2eme0")
+quit_audio = ExtResource("6_wgcv6")
+trans_in_shader_params = ExtResource("3_qliq7")
+start_shader_params = ExtResource("8_slagx")
+quit_shader_params = ExtResource("8_kd7oy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_mba8m")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_rjyd8")
+stretch_mode = 1
+
+[node name="Frogs" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Frog" parent="Frogs" instance=ExtResource("10_unpwy")]
+position = Vector2(168, 344)
+
+[node name="Frog2" parent="Frogs" instance=ExtResource("10_unpwy")]
+position = Vector2(520, 59)
+
+[node name="Frog3" parent="Frogs" instance=ExtResource("10_unpwy")]
+position = Vector2(448, 464)
+
+[node name="Frog4" parent="Frogs" instance=ExtResource("10_unpwy")]
+position = Vector2(80, 72)
+
+[node name="Frog5" parent="Frogs" instance=ExtResource("10_unpwy")]
+position = Vector2(792, 464)
+
+[node name="Frog6" parent="Frogs" instance=ExtResource("10_unpwy")]
+position = Vector2(648, 328)
+
+[node name="Frog7" parent="Frogs" instance=ExtResource("10_unpwy")]
+position = Vector2(328, 192)
+
+[node name="Frog8" parent="Frogs" instance=ExtResource("10_unpwy")]
+position = Vector2(768, 152)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 116)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 128
+text = "Frog Forage"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+mouse_filter = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 2
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit
+"
+
+[node name="SceneManagerInterface" parent="." instance=ExtResource("7_u7w80")]
+
+[node name="ShaderManagerInterface" parent="." instance=ExtResource("5_ge2ft")]
+
+[node name="AudioManagerInterface" parent="." instance=ExtResource("8_u608q")]

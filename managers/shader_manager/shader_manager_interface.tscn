@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp5a0qt5yauuk"]
+
+[ext_resource type="Script" path="res://managers/shader_manager/shader_manager_interface.gd" id="1_cdtfl"]
+[ext_resource type="PackedScene" uid="uid://lk2opsupos53" path="res://managers/shader_manager/shader_manager.tscn" id="2_x50g0"]
+
+[node name="ShaderManagerInterface" type="Node"]
+script = ExtResource("1_cdtfl")
+manager_scene = ExtResource("2_x50g0")

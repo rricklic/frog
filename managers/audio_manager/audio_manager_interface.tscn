@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bipwe6amgdi60"]
+
+[ext_resource type="Script" path="res://managers/audio_manager/audio_manager_interface.gd" id="1_thrgt"]
+[ext_resource type="PackedScene" uid="uid://lx6wv8wiwxgb" path="res://managers/audio_manager/audio_manager.tscn" id="2_coiah"]
+
+[node name="AudioManagerInterface" type="Node"]
+script = ExtResource("1_thrgt")
+manager_scene = ExtResource("2_coiah")

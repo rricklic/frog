@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://c30e1k5gbm6i3"]
+
+[ext_resource type="Theme" uid="uid://cmodhhki37xu4" path="res://themes/theme1.tres" id="1_fcnx3"]
+[ext_resource type="Texture2D" uid="uid://gs1dwdkinkpd" path="res://assets/images/angry_frog.png" id="2_hdcbd"]
+[ext_resource type="Script" path="res://ui/splash_screen.gd" id="2_te4al"]
+[ext_resource type="PackedScene" uid="uid://bipwe6amgdi60" path="res://managers/audio_manager/audio_manager_interface.tscn" id="3_x3fhi"]
+[ext_resource type="AudioStream" uid="uid://j54obwrqentg" path="res://assets/audio/frog_croak.mp3" id="3_xd651"]
+[ext_resource type="Resource" uid="uid://ce50meoulww8t" path="res://managers/shader_manager/parameter_resource/screen/screen_color_fade_to_white.tres" id="4_j0g7q"]
+[ext_resource type="PackedScene" uid="uid://corvnsqvjcik0" path="res://ui/main_menu.tscn" id="5_xqxdg"]
+[ext_resource type="PackedScene" uid="uid://dp5a0qt5yauuk" path="res://managers/shader_manager/shader_manager_interface.tscn" id="6_dl7rm"]
+[ext_resource type="PackedScene" uid="uid://dbm6orv8udgyy" path="res://managers/scene_manager/scene_manager.tscn" id="8_2t48l"]
+
+[node name="SplashScreen" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_fcnx3")
+script = ExtResource("2_te4al")
+frog_croak_sound = ExtResource("3_xd651")
+shader_parameters = ExtResource("4_j0g7q")
+next_scene = ExtResource("5_xqxdg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -108.5
+offset_right = 133.0
+offset_bottom = 108.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fcnx3")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+text = "Angry Frog Games"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("2_hdcbd")
+expand_mode = 3
+
+[node name="AudioManagerInterface" parent="." instance=ExtResource("3_x3fhi")]
+
+[node name="ShaderManagerInterface" parent="." instance=ExtResource("6_dl7rm")]
+
+[node name="SceneManager" parent="." instance=ExtResource("8_2t48l")]
