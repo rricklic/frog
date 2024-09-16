@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmni6405hjemi"]
+
+[ext_resource type="Script" path="res://components/shake_component.gd" id="1_h3nhk"]
+
+[node name="ShakeComponent" type="Node"]
+script = ExtResource("1_h3nhk")

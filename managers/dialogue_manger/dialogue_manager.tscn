@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds756gni1vrfh"]
+
+[ext_resource type="Script" path="res://managers/dialogue_manger/dialogue_manager.gd" id="1_ixu8n"]
+[ext_resource type="PackedScene" uid="uid://bsn3dqpj2rcfr" path="res://ui/dialogue_box/dialogue_box.tscn" id="2_1jajx"]
+
+[node name="DialogueManager" type="Node"]
+script = ExtResource("1_ixu8n")
+dialogue_box_scene = ExtResource("2_1jajx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx7bm55dq7jb4"]
+
+[ext_resource type="Script" path="res://components/movement/move_to_mouse_component.gd" id="1_kplao"]
+
+[node name="MoveToMouseComponent" type="Node"]
+script = ExtResource("1_kplao")

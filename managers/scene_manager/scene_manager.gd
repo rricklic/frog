@@ -1,4 +1,4 @@
-class_name SceneManager extends Node
+class_name SceneManager extends Manager
 
 const GROUP: String = "SceneManager"
 

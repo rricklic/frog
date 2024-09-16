@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdjmyvu43bi8h"]
+
+[ext_resource type="Script" path="res://dialogue/test/test_dialogue_graph.gd" id="1_ujscf"]
+[ext_resource type="PackedScene" uid="uid://cyxjsuu3cukjh" path="res://scenes/player/player.tscn" id="2_j8nm7"]
+[ext_resource type="PackedScene" uid="uid://3bmmvwrkylbw" path="res://managers/player_manager/player_manager_interface.tscn" id="3_16kts"]
+[ext_resource type="PackedScene" uid="uid://1r8jj1wju4fj" path="res://managers/dialogue_manger/dialogue_manager_interface.tscn" id="4_4ahua"]
+
+[node name="TestDialogueGraph" type="Node"]
+script = ExtResource("1_ujscf")
+
+[node name="Player" parent="." instance=ExtResource("2_j8nm7")]
+
+[node name="DialogueManagerInterface" parent="." instance=ExtResource("4_4ahua")]
+
+[node name="PlayerManagerInterface" parent="." instance=ExtResource("3_16kts")]

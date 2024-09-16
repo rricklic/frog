@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cul4jul2646gf"]
+
+[ext_resource type="Script" path="res://games/breakout/scenes/paddle.gd" id="1_oobld"]
+[ext_resource type="PackedScene" uid="uid://bx7bm55dq7jb4" path="res://components/movement/move_to_mouse_component.tscn" id="2_cl8mg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k82e"]
+size = Vector2(128, 16)
+
+[node name="Paddle" type="CharacterBody2D"]
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_oobld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3k82e")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.835718, 1.73271e-06, 4.81307e-07, 1)
+polygon = PackedVector2Array(-64, -8, 64, -8, 64, 8, -64, 8)
+
+[node name="MoveToMouseComponent" parent="." instance=ExtResource("2_cl8mg")]
+move_direction = 1

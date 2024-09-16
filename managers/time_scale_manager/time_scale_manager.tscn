@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccimsrs87i67o"]
+
+[ext_resource type="Script" path="res://managers/time_scale_manager/time_scale_manager.gd" id="1_vtvji"]
+
+[node name="TimeScaleManager" type="Node"]
+script = ExtResource("1_vtvji")

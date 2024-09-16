@@ -1,4 +1,12 @@
-class_name AudioManager extends Node
+class_name AudioManager extends Manager
+
+#
+# Plays audio (sounds, music)
+# Implements a cache of AudioStreamPlayer instances to minimize 
+# any overhead of instantiating.
+#
+# Fade in/out volume control
+#
 
 @export var size: int = 8
 

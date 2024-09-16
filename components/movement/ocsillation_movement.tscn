@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbuw7ssyf3a5a"]
+
+[ext_resource type="Script" path="res://components/movement/ocsillation_movement.gd" id="1_n5liy"]
+
+[node name="OcsillationMovement" type="Node"]
+script = ExtResource("1_n5liy")

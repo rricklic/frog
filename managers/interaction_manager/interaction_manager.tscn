@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://wn83i16v0scj"]
+
+[ext_resource type="Script" path="res://managers/interaction_manager/interaction_manager.gd" id="1_th850"]
+[ext_resource type="Theme" uid="uid://cmodhhki37xu4" path="res://themes/theme1.tres" id="2_mh7nd"]
+
+[node name="InteractionManager" type="Node"]
+script = ExtResource("1_th850")
+label_theme = ExtResource("2_mh7nd")

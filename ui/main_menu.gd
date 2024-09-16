@@ -30,6 +30,12 @@ func _ready() -> void:
 	start_button.pressed.connect(_on_start_button_pressed)
 	quit_button.pressed.connect(_on_quit_button_pressed)
 	
+	await get_tree().create_timer(5).timeout
+
+func _tween_property(amount: float, name: String, shader_material: ShaderMaterial) -> void:
+	print("amount:", amount)
+	shader_material.set_shader_parameter(name, amount)
+
 func _on_startup() -> void:
 	scene_manager_interface.delete_transition_sprite()
 	await shader_manager_interface.perform(self, trans_in_shader_params)
@@ -39,7 +45,7 @@ func _on_startup() -> void:
 	title.pivot_offset = title.size / 2.0
 	start_button.pivot_offset = start_button.size / 2.0
 	quit_button.pivot_offset = quit_button.size / 2.0
-	
+
 	_rotate_pulse_title()
 	_slide_in_buttons()
 

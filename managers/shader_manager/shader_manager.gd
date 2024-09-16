@@ -1,4 +1,4 @@
-class_name ShaderManager extends Node
+class_name ShaderManager extends Manager
 
 signal finished
 
@@ -31,13 +31,13 @@ func perform(canvas_item: CanvasItem, parameters: ShaderParameters) -> void:
 	for static_parameter: StaticColorShaderParam in parameters.static_color_params:
 		shader_material.set_shader_parameter(static_parameter.name, static_parameter.value)
 
-	var tween: Tween = create_tween()
-	tween.set_parallel(true)
-	for dynamic_parameter: DynamicFloatShaderParam in parameters.dynamic_float_params:
-		tween.tween_method(_tween_property.bind(dynamic_parameter.name, shader_material),
-				dynamic_parameter.start_value, dynamic_parameter.end_value, dynamic_parameter.duration)
-				
-	await tween.finished
+	if (!parameters.dynamic_float_params.is_empty()):
+		var tween: Tween = create_tween()
+		tween.set_parallel(true)
+		for dynamic_parameter: DynamicFloatShaderParam in parameters.dynamic_float_params:
+			tween.tween_method(_tween_property.bind(dynamic_parameter.name, shader_material),
+					dynamic_parameter.start_value, dynamic_parameter.end_value, dynamic_parameter.duration)
+		await tween.finished
 	
 	#target.material = original_material # TODO: reset target materia???
 	

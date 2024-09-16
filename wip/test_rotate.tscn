@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmh12nkmlapkn"]
+
+[ext_resource type="Script" path="res://wip/test_rotate.gd" id="1_al000"]
+[ext_resource type="Texture2D" uid="uid://bvvp3gdlll0wd" path="res://assets/images/icon.svg" id="1_knfnr"]
+[ext_resource type="Script" path="res://components/rotate_spring_component.gd" id="2_11r15"]
+
+[node name="TestRotate" type="Node"]
+script = ExtResource("1_al000")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(464, 236)
+scale = Vector2(1, 1.6875)
+texture = ExtResource("1_knfnr")
+
+[node name="RotateSpringComponent" type="Node" parent="Sprite2D"]
+script = ExtResource("2_11r15")
+spring = 1000.0

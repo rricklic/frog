@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp5pc8hin61bi"]
+
+[ext_resource type="Script" path="res://components/movement/platformer_movement_component.gd" id="1_tofaa"]
+
+[node name="PlatformerMovementComponent" type="Node"]
+script = ExtResource("1_tofaa")

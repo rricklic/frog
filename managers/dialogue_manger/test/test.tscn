@@ -1,0 +1,88 @@
+[gd_scene load_steps=15 format=3 uid="uid://cutvhfnvvnsft"]
+
+[ext_resource type="PackedScene" uid="uid://1r8jj1wju4fj" path="res://managers/dialogue_manger/dialogue_manager_interface.tscn" id="1_bt725"]
+[ext_resource type="Texture2D" uid="uid://bav67uss54x7c" path="res://assets/images/frog_backgound.png" id="2_7vgpw"]
+[ext_resource type="Shader" path="res://shaders/texture/scroll.gdshader" id="2_lbxf7"]
+[ext_resource type="Texture2D" uid="uid://gs1dwdkinkpd" path="res://assets/images/angry_frog.png" id="5_u3o2e"]
+[ext_resource type="PackedScene" uid="uid://dyky3bg60ekkd" path="res://components/areas/dialogue_area.tscn" id="6_6mctd"]
+[ext_resource type="Script" path="res://dialogue/dialogue_event.gd" id="6_31cdw"]
+[ext_resource type="PackedScene" uid="uid://cyxjsuu3cukjh" path="res://scenes/player/player.tscn" id="7_0ihr6"]
+[ext_resource type="Texture2D" uid="uid://bvvp3gdlll0wd" path="res://assets/images/icon.svg" id="13_whong"]
+[ext_resource type="Script" path="res://managers/dialogue_manger/test/sprite_2d.gd" id="14_l30rm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66kew"]
+shader = ExtResource("2_lbxf7")
+shader_parameter/x_speed = 0.1
+shader_parameter/y_speed = -0.1
+shader_parameter/angle = 0.4
+
+[sub_resource type="Resource" id="Resource_uwvgq"]
+script = ExtResource("6_31cdw")
+edges = {}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0wom"]
+size = Vector2(490, 285.714)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jo5x"]
+size = Vector2(74, 544)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pde5c"]
+size = Vector2(128, 128)
+
+[node name="Test" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_66kew")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7vgpw")
+stretch_mode = 1
+
+[node name="DialogueManagerInterface" parent="." instance=ExtResource("1_bt725")]
+
+[node name="AngryFrog" type="Sprite2D" parent="."]
+position = Vector2(256.5, 385.5)
+scale = Vector2(0.340816, 0.35)
+texture = ExtResource("5_u3o2e")
+
+[node name="DialogueArea" parent="AngryFrog" instance=ExtResource("6_6mctd")]
+position = Vector2(-1.46707, 1.42857)
+trigger = 1
+dialogue_event = SubResource("Resource_uwvgq")
+
+[node name="Marker2D" parent="AngryFrog/DialogueArea" index="0"]
+position = Vector2(0, -151.429)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AngryFrog/DialogueArea"]
+position = Vector2(-5.86816, 7.14282)
+shape = SubResource("RectangleShape2D_s0wom")
+
+[node name="Player" parent="." instance=ExtResource("7_0ihr6")]
+position = Vector2(576, 288)
+
+[node name="DialogueArea" parent="." instance=ExtResource("6_6mctd")]
+position = Vector2(56, 224)
+
+[node name="Marker2D" parent="DialogueArea" index="0"]
+position = Vector2(23, 33)
+
+[node name="CollisionShape2D" parent="DialogueArea" index="2"]
+position = Vector2(27, 48)
+shape = SubResource("RectangleShape2D_5jo5x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(760, 160)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_whong")
+script = ExtResource("14_l30rm")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("RectangleShape2D_pde5c")
+
+[editable path="AngryFrog/DialogueArea"]
+[editable path="DialogueArea"]

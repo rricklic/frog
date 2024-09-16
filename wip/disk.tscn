@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfdkd48shsq4a"]
+
+[ext_resource type="Texture2D" uid="uid://bvvp3gdlll0wd" path="res://assets/images/icon.svg" id="1_bndna"]
+[ext_resource type="Script" path="res://wip/disk.gd" id="2_s7ihg"]
+[ext_resource type="PackedScene" uid="uid://cmni6405hjemi" path="res://components/shake_component.tscn" id="3_eht5n"]
+
+[node name="Disk" type="Sprite2D"]
+texture = ExtResource("1_bndna")
+script = ExtResource("2_s7ihg")
+
+[node name="ShakeComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_eht5n")]
+noise_speed = 10.0
+max_angle = 3.0
+max_offset_x = 2.0
+max_offset_y = 5.0
+recovery_factor = 0.0
+target = NodePath("..")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1xw4l3do25kr"]
+
+[ext_resource type="Script" path="res://managers/achievement_manager/achievement_manager_interface.gd" id="1_6b0aw"]
+[ext_resource type="PackedScene" uid="uid://cfv2lwpu66nfh" path="res://managers/achievement_manager/achievement_manager.tscn" id="2_1uhra"]
+
+[node name="ObjectManagerInterface" type="Node"]
+script = ExtResource("1_6b0aw")
+manager_scene = ExtResource("2_1uhra")

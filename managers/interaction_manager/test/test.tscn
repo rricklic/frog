@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://csg27qsneo2qp"]
+
+[ext_resource type="PackedScene" uid="uid://beox7p13sjp28" path="res://components/areas/interaction_area.tscn" id="1_jnufv"]
+[ext_resource type="Texture2D" uid="uid://d0iwyxovoxagi" path="res://assets/images/frog1.png" id="1_otxqk"]
+[ext_resource type="Script" path="res://managers/interaction_manager/test/purple_frog.gd" id="2_5seji"]
+[ext_resource type="PackedScene" uid="uid://cyxjsuu3cukjh" path="res://scenes/player/player.tscn" id="2_6x7mn"]
+[ext_resource type="Script" path="res://managers/interaction_manager/test/red_frog.gd" id="4_5vrog"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wns2"]
+size = Vector2(176, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4b6rd"]
+size = Vector2(168, 96)
+
+[node name="Test" type="Node2D"]
+
+[node name="PurpleFrog" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 1, 1)
+position = Vector2(336, 152)
+texture = ExtResource("1_otxqk")
+script = ExtResource("2_5seji")
+
+[node name="InteractionArea" parent="PurpleFrog" instance=ExtResource("1_jnufv")]
+interaction_name = "Interact with Purple"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PurpleFrog/InteractionArea"]
+shape = SubResource("RectangleShape2D_6wns2")
+
+[node name="RedFrog" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.0980392, 0, 1)
+position = Vector2(464, 152)
+texture = ExtResource("1_otxqk")
+script = ExtResource("4_5vrog")
+
+[node name="InteractionArea" parent="RedFrog" instance=ExtResource("1_jnufv")]
+interaction_name = "Interact with Red"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedFrog/InteractionArea"]
+shape = SubResource("RectangleShape2D_4b6rd")
+
+[node name="Player1" parent="." instance=ExtResource("2_6x7mn")]
+position = Vector2(592, 326)
+
+[node name="Player2" parent="." instance=ExtResource("2_6x7mn")]
+position = Vector2(264, 304)
+
+[node name="TopDownMovementComponent" parent="Player2" index="2"]
+up_action = "ui_up_2"
+down_action = "ui_down_2"
+left_action = "ui_left_2"
+right_action = "ui_right_2"
+
+[editable path="Player2"]

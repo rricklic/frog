@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://corvnsqvjcik0"]
+[gd_scene load_steps=20 format=3 uid="uid://corvnsqvjcik0"]
 
+[ext_resource type="Shader" path="res://shaders/texture/dissolve.gdshader" id="1_eylev"]
 [ext_resource type="Texture2D" uid="uid://bav67uss54x7c" path="res://assets/images/frog_backgound.png" id="1_rjyd8"]
 [ext_resource type="Theme" uid="uid://cmodhhki37xu4" path="res://themes/theme1.tres" id="1_s17f2"]
 [ext_resource type="Shader" path="res://shaders/texture/scroll.gdshader" id="1_uunn7"]
+[ext_resource type="Texture2D" uid="uid://dc2n72lkhgta3" path="res://assets/transition_textures/transition_texture_10.jpeg" id="2_18nr6"]
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="2_x7wat"]
 [ext_resource type="AudioStream" uid="uid://b2dq4j14jvq7r" path="res://assets/audio/title_music.mp3" id="3_6qe50"]
 [ext_resource type="AudioStream" uid="uid://dgajrfw1k44gl" path="res://assets/audio/select.mp3" id="3_6xxrj"]
@@ -16,6 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://bipwe6amgdi60" path="res://managers/audio_manager/audio_manager_interface.tscn" id="8_u608q"]
 [ext_resource type="PackedScene" uid="uid://soa5g32bskxu" path="res://scenes/frogs/frog.tscn" id="10_unpwy"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_opala"]
+shader = ExtResource("1_eylev")
+shader_parameter/amount = 0.0
+shader_parameter/dissolve_texture = ExtResource("2_18nr6")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mba8m"]
 shader = ExtResource("1_uunn7")
 shader_parameter/x_speed = -0.1
@@ -23,6 +30,7 @@ shader_parameter/y_speed = 0.1
 shader_parameter/angle = 0.5
 
 [node name="MainMenu" type="Control"]
+material = SubResource("ShaderMaterial_opala")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

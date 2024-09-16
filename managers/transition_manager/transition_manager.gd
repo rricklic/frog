@@ -1,4 +1,4 @@
-class_name TransitionManager extends Node
+class_name TransitionManager extends Manager
 
 const GROUP: String = "TransitionManager"
 

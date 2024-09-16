@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d202bqwk2gi6f"]
+
+[ext_resource type="Script" path="res://components/movement/astar_movement_component.gd" id="1_0514s"]
+
+[node name="AStarMovementComponent" type="Node"]
+script = ExtResource("1_0514s")

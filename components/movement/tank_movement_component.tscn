@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1ck0h0bav8ah"]
+
+[ext_resource type="Script" path="res://components/movement/tank_movement_component.gd" id="1_kam4g"]
+
+[node name="TankMovementComponent" type="Node"]
+script = ExtResource("1_kam4g")

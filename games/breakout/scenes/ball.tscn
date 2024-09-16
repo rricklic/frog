@@ -1,0 +1,45 @@
+[gd_scene load_steps=11 format=3 uid="uid://yswn6f3let6x"]
+
+[ext_resource type="Script" path="res://games/breakout/scenes/ball.gd" id="1_gb38o"]
+[ext_resource type="AudioStream" uid="uid://bwdanp1mxer4a" path="res://games/breakout/assets/bounce.wav" id="2_5ts0d"]
+[ext_resource type="PackedScene" uid="uid://bipwe6amgdi60" path="res://managers/audio_manager/audio_manager_interface.tscn" id="2_kbni3"]
+[ext_resource type="AudioStream" uid="uid://c6methl5ryxm0" path="res://games/breakout/assets/bounce_2.wav" id="3_yu67x"]
+[ext_resource type="AudioStream" uid="uid://byxiok5kqyajv" path="res://games/breakout/assets/bounce_3.wav" id="4_4hetp"]
+[ext_resource type="PackedScene" uid="uid://cwacjsr223i1i" path="res://managers/camera_manager/camera_manager_interface.tscn" id="6_j2j5o"]
+[ext_resource type="PackedScene" uid="uid://cwdgpyj3fivoo" path="res://components/trail_component.tscn" id="7_8d3ag"]
+[ext_resource type="PackedScene" uid="uid://c0biornh7unye" path="res://managers/time_scale_manager/time_scale_manager_interface.tscn" id="8_odekm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_45fa2"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f7lu1"]
+radius = 128.0
+
+[node name="Ball" type="CharacterBody2D"]
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_gb38o")
+bounce = ExtResource("2_5ts0d")
+bounce_2 = ExtResource("3_yu67x")
+bounce_3 = ExtResource("4_4hetp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_45fa2")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.843137, 0.615686, 0, 1)
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[node name="TrailComponent" parent="." instance=ExtResource("7_8d3ag")]
+show_behind_parent = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_f7lu1")
+
+[node name="AudioManagerInterface" parent="." instance=ExtResource("2_kbni3")]
+
+[node name="CameraManagerInterface" parent="." instance=ExtResource("6_j2j5o")]
+
+[node name="TimeScaleManagerInterface" parent="." instance=ExtResource("8_odekm")]

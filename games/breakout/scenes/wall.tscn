@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj1is4k48bdgl"]
+
+[ext_resource type="Script" path="res://games/breakout/scenes/wall.gd" id="1_0n4h4"]
+
+[node name="Wall" type="StaticBody2D"]
+script = ExtResource("1_0n4h4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="CollisionPolygon2D"]
+color = Color(1, 0.229536, 0.174185, 1)

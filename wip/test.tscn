@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bltdcg42gyxdc"]
+
+[ext_resource type="Script" path="res://wip/test.gd" id="1_qayaw"]
+[ext_resource type="PackedScene" uid="uid://cfdkd48shsq4a" path="res://wip/disk.tscn" id="2_wpg06"]
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_qayaw")
+
+[node name="Disk" parent="." instance=ExtResource("2_wpg06")]
+position = Vector2(384, 272)
+
+[node name="Disk2" parent="." instance=ExtResource("2_wpg06")]
+position = Vector2(464, 272)
+
+[node name="Disk4" parent="." instance=ExtResource("2_wpg06")]
+position = Vector2(464, 272)
+
+[node name="Disk3" parent="." instance=ExtResource("2_wpg06")]
+position = Vector2(544, 272)
+
+[node name="Disk5" parent="." instance=ExtResource("2_wpg06")]
+position = Vector2(624, 272)
+
+[node name="Disk6" parent="." instance=ExtResource("2_wpg06")]
+position = Vector2(704, 272)

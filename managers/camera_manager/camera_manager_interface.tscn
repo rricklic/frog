@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwacjsr223i1i"]
+
+[ext_resource type="Script" path="res://managers/camera_manager/camera_manager_interface.gd" id="1_nj1s4"]
+[ext_resource type="PackedScene" uid="uid://d3c405f1o657n" path="res://managers/camera_manager/camera_manager.tscn" id="2_84sdr"]
+
+[node name="CameraManagerInterface" type="Node"]
+script = ExtResource("1_nj1s4")
+manager_scene = ExtResource("2_84sdr")

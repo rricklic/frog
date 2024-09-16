@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy55ikbrbypc5"]
+
+[ext_resource type="Script" path="res://components/movement/mouse_click_movement_component.gd" id="1_no235"]
+
+[node name="MouseClickMovementComponent" type="Node"]
+script = ExtResource("1_no235")

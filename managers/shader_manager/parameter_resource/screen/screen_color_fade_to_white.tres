@@ -19,7 +19,6 @@ name = "target_color"
 value = Color(1, 1, 1, 1)
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("2_28x23")
 shader = ExtResource("3_lovfv")
 is_screen_shader = true

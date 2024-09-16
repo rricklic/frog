@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0biornh7unye"]
+
+[ext_resource type="Script" path="res://managers/time_scale_manager/time_scale_manager_interface.gd" id="1_fyoaa"]
+[ext_resource type="PackedScene" uid="uid://ccimsrs87i67o" path="res://managers/time_scale_manager/time_scale_manager.tscn" id="2_eycxc"]
+
+[node name="TimeScaleManagerInterface" type="Node"]
+script = ExtResource("1_fyoaa")
+manager_scene = ExtResource("2_eycxc")

@@ -1,0 +1,1 @@
+class_name ScrollerMovementComponent extends Node
