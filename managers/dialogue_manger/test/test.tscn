@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://cutvhfnvvnsft"]
+
+[ext_resource type="PackedScene" uid="uid://1r8jj1wju4fj" path="res://managers/dialogue_manger/dialogue_manager_interface.tscn" id="1_bt725"]
+[ext_resource type="Script" path="res://managers/dialogue_manger/test/test.gd" id="1_dj35l"]
+[ext_resource type="Texture2D" uid="uid://bav67uss54x7c" path="res://assets/images/frog_backgound.png" id="2_7vgpw"]
+[ext_resource type="Shader" path="res://shaders/texture/scroll.gdshader" id="2_lbxf7"]
+[ext_resource type="Texture2D" uid="uid://gs1dwdkinkpd" path="res://assets/images/angry_frog.png" id="5_u3o2e"]
+[ext_resource type="PackedScene" uid="uid://dyky3bg60ekkd" path="res://components/areas/dialogue_area.tscn" id="6_6mctd"]
+[ext_resource type="Texture2D" uid="uid://d0iwyxovoxagi" path="res://assets/images/frog1.png" id="7_sorts"]
+[ext_resource type="Script" path="res://managers/dialogue_manger/test/character_body_2d.gd" id="7_v47ej"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66kew"]
+shader = ExtResource("2_lbxf7")
+shader_parameter/x_speed = 0.1
+shader_parameter/y_speed = -0.1
+shader_parameter/angle = 0.4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0wom"]
+size = Vector2(490, 285.714)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v18d3"]
+size = Vector2(47, 50)
+
+[node name="Test" type="Node"]
+script = ExtResource("1_dj35l")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_66kew")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7vgpw")
+stretch_mode = 1
+
+[node name="DialogueManagerInterface" parent="." instance=ExtResource("1_bt725")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(256.5, 385.5)
+scale = Vector2(0.340816, 0.35)
+texture = ExtResource("5_u3o2e")
+
+[node name="DialogueArea" parent="Sprite2D" instance=ExtResource("6_6mctd")]
+position = Vector2(-1.46707, 1.42857)
+trigger = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/DialogueArea"]
+position = Vector2(-5.86816, 7.14282)
+shape = SubResource("RectangleShape2D_s0wom")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(479, 382)
+script = ExtResource("7_v47ej")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("7_sorts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_v18d3")

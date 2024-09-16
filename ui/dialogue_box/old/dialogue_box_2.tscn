@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://b425ehxe350i"]
+
+[ext_resource type="Script" path="res://ui/dialogue_box/old/dialogue_box_2.gd" id="1_7crhw"]
+[ext_resource type="Script" path="res://dialogue/dialogue_response.gd" id="2_anmol"]
+[ext_resource type="Theme" uid="uid://cmodhhki37xu4" path="res://themes/theme1.tres" id="2_ose2s"]
+[ext_resource type="Script" path="res://dialogue/dialogue.gd" id="3_kpgf3"]
+[ext_resource type="AudioStream" uid="uid://db12jjkxpfa2w" path="res://assets/audio/blip.wav" id="4_rswjb"]
+[ext_resource type="PackedScene" uid="uid://bipwe6amgdi60" path="res://managers/audio_manager/audio_manager_interface.tscn" id="6_cnlck"]
+
+[sub_resource type="Resource" id="Resource_38as8"]
+script = ExtResource("3_kpgf3")
+text = Array[String](["Hi Anna!!! How are you? La la la la la la la la la la la la la la la la", "Here's some more dialogue.", "I just can't stop!!!!"])
+responses = Array[ExtResource("2_anmol")]([])
+sound = ExtResource("4_rswjb")
+
+[node name="DialogueBox2" type="MarginContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.5
+offset_top = -30.0
+offset_right = 8.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_7crhw")
+dialogue = SubResource("Resource_38as8")
+
+[node name="Panel" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_ose2s")
+theme_override_font_sizes/font_size = 48
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioManagerInterface" parent="." instance=ExtResource("6_cnlck")]

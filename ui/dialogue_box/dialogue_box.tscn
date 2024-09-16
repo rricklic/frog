@@ -1,0 +1,100 @@
+[gd_scene load_steps=17 format=3 uid="uid://bsn3dqpj2rcfr"]
+
+[ext_resource type="Script" path="res://ui/dialogue_box/dialogue_box.gd" id="1_ukin1"]
+[ext_resource type="Script" path="res://dialogue/dialogue_response.gd" id="2_2dnhf"]
+[ext_resource type="Script" path="res://dialogue/dialogue.gd" id="3_1ifkq"]
+[ext_resource type="AudioStream" uid="uid://xpkvdx8uhcex" path="res://assets/audio/here_we_go.mp3" id="4_1gryj"]
+[ext_resource type="AudioStream" uid="uid://db12jjkxpfa2w" path="res://assets/audio/blip.wav" id="5_nn0cu"]
+[ext_resource type="Script" path="res://ui/dialogue_box/response_panel.gd" id="6_lemeu"]
+[ext_resource type="AudioStream" uid="uid://j54obwrqentg" path="res://assets/audio/frog_croak.mp3" id="6_vr6j2"]
+[ext_resource type="Theme" uid="uid://cmodhhki37xu4" path="res://themes/theme1.tres" id="7_vg0na"]
+[ext_resource type="PackedScene" uid="uid://bipwe6amgdi60" path="res://managers/audio_manager/audio_manager_interface.tscn" id="8_xxd7d"]
+
+[sub_resource type="Resource" id="Resource_ndok4"]
+script = ExtResource("3_1ifkq")
+text = Array[String](["Cool"])
+responses = Array[ExtResource("2_2dnhf")]([])
+sound = ExtResource("4_1gryj")
+
+[sub_resource type="Resource" id="Resource_ou8a4"]
+script = ExtResource("2_2dnhf")
+text = "Yes"
+next_dialogue = SubResource("Resource_ndok4")
+
+[sub_resource type="Resource" id="Resource_l25rb"]
+script = ExtResource("3_1ifkq")
+text = Array[String](["Dang..."])
+responses = Array[ExtResource("2_2dnhf")]([])
+sound = ExtResource("5_nn0cu")
+
+[sub_resource type="Resource" id="Resource_0ebxs"]
+script = ExtResource("2_2dnhf")
+text = "No"
+next_dialogue = SubResource("Resource_l25rb")
+
+[sub_resource type="Resource" id="Resource_8yibe"]
+script = ExtResource("3_1ifkq")
+text = Array[String](["... ok?"])
+responses = Array[ExtResource("2_2dnhf")]([])
+sound = ExtResource("6_vr6j2")
+
+[sub_resource type="Resource" id="Resource_s5728"]
+script = ExtResource("2_2dnhf")
+text = "Maybe"
+next_dialogue = SubResource("Resource_8yibe")
+
+[sub_resource type="Resource" id="Resource_dmo5q"]
+script = ExtResource("3_1ifkq")
+text = Array[String](["Hello, world! This is a test to test the new dialogue box. Hope this works as expected... Here's more text for a second page.", "A second page of dialogue."])
+responses = Array[ExtResource("2_2dnhf")]([SubResource("Resource_ou8a4"), SubResource("Resource_0ebxs"), SubResource("Resource_s5728")])
+sound = ExtResource("5_nn0cu")
+
+[node name="DialogueBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ukin1")
+dialogue = SubResource("Resource_dmo5q")
+
+[node name="ResponsePanel" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("7_vg0na")
+script = ExtResource("6_lemeu")
+
+[node name="Selection" type="ColorRect" parent="ResponsePanel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+
+[node name="ResponsesLabel" type="Label" parent="ResponsePanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("7_vg0na")
+theme_override_font_sizes/font_size = 48
+
+[node name="DialoguePanel" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("7_vg0na")
+
+[node name="DialogueLabel" type="Label" parent="DialoguePanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 115.0
+offset_bottom = 44.0
+theme = ExtResource("7_vg0na")
+
+[node name="AudioManagerInterface" parent="." instance=ExtResource("8_xxd7d")]

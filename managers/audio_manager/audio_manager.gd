@@ -1,5 +1,13 @@
 class_name AudioManager extends Node
 
+#
+# Plays audio (sounds, music)
+# Implements a cache of AudioStreamPlayer instances to minimize 
+# any overhead of instantiating.
+#
+# Fade in/out volume control
+#
+
 @export var size: int = 8
 
 const GROUP: StringName = "AudioManager"

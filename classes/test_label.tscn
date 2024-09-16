@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvesiqbmxpnmb"]
+
+[ext_resource type="Theme" uid="uid://cmodhhki37xu4" path="res://themes/theme1.tres" id="1_0wtsk"]
+
+[node name="Panel" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TestLabel" type="Label" parent="."]
+offset_right = 478.0
+offset_bottom = 44.0
+theme = ExtResource("1_0wtsk")
+theme_override_font_sizes/font_size = 48
+text = "Hello, world! The quick brown fox jumps over the lazy dog."

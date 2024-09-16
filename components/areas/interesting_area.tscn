@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceqtgpsl7sqmp"]
+
+[ext_resource type="Script" path="res://components/areas/interesting_area.gd" id="1_tgl22"]
+
+[node name="InterestingArea" type="Area2D"]
+script = ExtResource("1_tgl22")
